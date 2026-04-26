@@ -245,22 +245,5 @@ python simulate_stream.py \
     --n-records 5000 --batch-size 50 --interval 0.2
 ```
 
-## Logs
 
-Two line-delimited-JSON logs are written as the service runs:
 
-- `logs/predictions.jsonl` — one line per prediction (timestamp, predicted class,
-  is_attack, top probability). Each record logged as soon as the request is served.
-- `logs/drift.jsonl` — one line per `/monitoring` call (compact summary
-  suitable for post-hoc analysis or plotting).
-
-Both are append-only; delete them between runs if you want a clean slate.
-
-## Limitations
-
-- Monitoring state is in memory only — restarting the service resets the window
-  and cumulative counters. For a real deployment you'd persist state.
-- Reference distributions are computed from training data at startup, so
-  changing the model or retraining means restarting the service.
-- The drift tests are simple (z-score + histogram difference). Richer tests
-  (KS, PSI, chi-square) would be a natural extension if you want to go further.
