@@ -1,0 +1,10 @@
+[
+  "BenignTraffic",
+  "DDoS-ICMP_Flood",
+  "DictionaryBruteForce",
+  "DoS-SYN_Flood",
+  "MITM-ArpSpoofing",
+  "Mirai-greeth_flood",
+  "Recon-PortScan",
+  "SqlInjection"
+]
