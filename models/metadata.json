@@ -1,0 +1,13 @@
+{
+  "model_name": "Random Forest",
+  "model_path": "best_model.joblib",
+  "model_type": "sklearn",
+  "n_features": 39,
+  "n_classes": 8,
+  "benign_label": 0,
+  "val_macro_f1": 0.7346717085467694,
+  "val_fpr_benign": 0.025734343247736928,
+  "test_macro_f1": 0.7601809765047548,
+  "test_accuracy": 0.9158331285328091,
+  "test_fpr_benign": 0.021947164234250877
+}
