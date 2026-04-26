@@ -1,10 +1,9 @@
-# Milestone 4 — Inference Endpoint + Drift Monitoring
+# CYBERSECURITY PROJECT
 
 Small FastAPI service that loads the Random Forest model saved in Milestone 3
 and serves predictions on JSON feature vectors, with three drift signals
 monitored over a rolling window of recent predictions.
 
-Maps directly to the brief's **Step 6** (deployment) and **Step 7** (monitoring).
 
 ## What this covers
 
@@ -21,18 +20,46 @@ Maps directly to the brief's **Step 6** (deployment) and **Step 7** (monitoring)
 ## Folder layout
 
 ```
-milestone4/
-├── app.py                 # FastAPI application
-├── monitoring.py          # Drift-detection logic (DriftMonitor class)
-├── schemas.py             # Pydantic request/response models
-├── config.py              # Paths and tunable thresholds
-├── templates/
-│   └── dashboard.html     # Polls /monitoring and draws charts
-├── simulate_stream.py     # Client that streams a CSV through the API
-├── requirements.txt
-└── logs/                  # Auto-created; per-prediction and per-snapshot logs
-    ├── predictions.jsonl
-    └── drift.jsonl
+IOT_ML_PROJECT/
+├── README.md
+├── Dockerfile
+├── docker-compose.yml
+│
+├── data/
+│   └── raw/
+│       ├── BenignTraffic.csv
+│       ├── DDoS-ICMP_Flood.csv
+│       ├── DictionaryBruteForce.csv
+│       ├── DoS-SYN_Flood.csv
+│       ├── MITM-ArpSpoofing.csv
+│       ├── Mirai-greeth_flood.csv
+│       ├── Recon-PortScan.csv
+│       └── SqlInjection.csv
+│
+├── notebooks/
+│   ├── 01_data_inspection.ipynb
+│   ├── 02_preprocessing.ipynb
+│   └── 03_model_training.ipynb
+│
+├── models/
+│   ├── imputer.joblib
+│   ├── label_encoder.joblib
+│   ├── scaler.joblib
+│   ├── feature_names.json
+│   ├── metadata.json
+│   └── class_names.json
+│
+└── milestone4/
+    ├── README.md
+    ├── app.py
+    ├── config.py
+    ├── monitoring.py
+    ├── schemas.py
+    ├── simulate_stream.py
+    ├── requirements.txt
+    └── templates/
+        └── dashboard.html
+
 ```
 
 ## Prerequisites
@@ -50,9 +77,6 @@ directory level up:
 ../data/processed/y_train.npy
 ```
 
-These filenames stay the same after the safer ordered per-class split in
-Milestone 2. If the split is regenerated and Milestone 3 is retrained, rebuild
-the Docker image so the container includes the updated arrays and model files.
 
 ## Install and run
 
