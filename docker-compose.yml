@@ -1,0 +1,10 @@
+services:
+  iot-ids:
+    build:
+      context: .
+    image: jose442004/iot-intrusion-project:latest
+    container_name: iot-ids
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./milestone4/logs:/app/milestone4/logs
